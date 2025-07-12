@@ -1,6 +1,7 @@
 name: Workflow Basico Fallido
 
-on: [ push ]
+on: #[ push ]
+  workflow_dispatch
 
 jobs: 
     nombrejobs:
