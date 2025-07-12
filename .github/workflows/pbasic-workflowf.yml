@@ -1,0 +1,15 @@
+name: Workflow Basico Fallido
+
+on: [ push ]
+
+jobs: 
+    nombrejobs:
+        name: Primer Job Fallido
+        runs-on: ubuntu-latest
+        steps:
+          - name: Primer paso (Saludo)
+            run: echo "Saludo desde Workflow Basico"
+          - name: Cometi un error
+            run: |
+              echo "Cometí un error"
+              exit 1 
