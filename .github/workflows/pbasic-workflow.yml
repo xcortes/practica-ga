@@ -1,7 +1,6 @@
 name:  Workflow Basico 
 
-on:
-    [ push ]
+on: [push]
 
 jobs: 
     nombrejob: 
