@@ -1,0 +1,12 @@
+name:  Workflow Basico 
+
+on:
+    [ push ]
+
+jobs: 
+    nombrejob: 
+      name: Primer Job
+      runs-on: ububtu-latest
+      steps: 
+        - name: Primer paso (Saludo)
+          run: echo "Saludo desde Workflow Basico"          
