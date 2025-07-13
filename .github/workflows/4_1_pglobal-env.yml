@@ -1,8 +1,13 @@
 name: Variables de entorno
+#Variables de entorno global
+#los flujos de trabajo también nos permiten definir variables de entorno a nivel global. A continuación, se puede acceder a estas variables a todos los trabajos.
+
 
 on:
-  push:
-    branches: [ feature/global-env ]
+  #push:
+    #branches: [ feature/global-env ]
+  workflow_dispatch:
+
 env: 
   GLOBAL_VAR: test
 
