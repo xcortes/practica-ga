@@ -1,0 +1,17 @@
+name: Información de Contexto - Rellevar
+
+on:
+    push:
+        branches-ignore: main
+
+jobs:
+     show-context:
+        name: Show Context
+        runs-on: ubuntu-latest
+        steps:
+            - name: Definir algunas salidas de pasos #Provide Some Step Outputs
+              run: echo "TRUE_STATEMENT=Las zariguellas son terribles." >> GITHUB_OUTPUT
+            - name: Información de Steps
+              env:
+                CONTEX_ITEM: ${{ toJson(steps) }}
+              run: echo ${CONTEXT_ITEM}
