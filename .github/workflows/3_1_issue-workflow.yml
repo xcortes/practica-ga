@@ -1,4 +1,4 @@
-nema: Eventos Issues
+name: Eventos Issues
 # Eventos que desencadena flujos de trabajo 
 # Doc: https://docs.github.com/en/actions/reference/events-that-trigger-workflows
 # A parte de la insercción, los flujos de trabajo también se pueden desencadenar a partir de una variedad de otros eventos.
@@ -6,7 +6,7 @@ nema: Eventos Issues
 
 on:
   issues:
-    types: [ openened ]
+    types: [ opened ]
 
 jobs:
   haciendo-mas-cosas: #doing-more-things:
@@ -15,7 +15,7 @@ jobs:
     steps: 
       - name: Información de salide Issues
         env: #Definición variables de entorno
-          EVENT_NAME: ${{ github.EVENT_NAME }} #toma el nombre del evento (issues en este caso
-          EVENT_ACTION: ${{ github.EVENT_ACTION }} #toma la acción específica del evento (opened)
+          EVENT_NAME: ${{ github.event_name }} #toma el nombre del evento (issues en este caso
+          EVENT_ACTION: ${{ github.event.action }} 
         run: echo "La acción '${EVENT_ACTION}' se realizó contra '${EVENT_NAME}'." 
         #Esto sirve para confirmar que el workflow detectó correctamente el evento y la acción
