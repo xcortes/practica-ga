@@ -1,0 +1,28 @@
+name: Variables de entorno
+#Variables de entorno global
+#los flujos de trabajo también nos permiten definir variables de entorno a nivel global. A continuación, se puede acceder a estas variables a todos los trabajos.
+
+
+on:
+  #push:
+    #branches: [ feature/global-env ]
+  workflow_dispatch:
+
+env: 
+  GLOBAL_VAR: test
+
+jobs: 
+  primer-job:
+    name: Un Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Salida Variable Entono #Output Global Variable
+        run: echo ${GLOBAL_VAR} # Linea original ejerciio
+  segundo-job:
+    name: Otro Job #Another Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Salida Var Entorno 2Do Job
+        run: |
+          echo "Salida Variable de Entorno desde el 2Do Job es ${GLOBAL_VAR}." >> $GITHUB_STEP_SUMMARY
+          echo "### Hello resumen de trabajo! :rocket:" >> $GITHUB_STEP_SUMMARY

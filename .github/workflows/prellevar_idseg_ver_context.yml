@@ -4,8 +4,10 @@ name: Inf de Contexto - 2da Var Salida
 # Repo: https://github.com/samueljmello/github-actions-exercises/blob/main/02-Understanding-Context-Variables.md
 
 on:
-  push:
-    branches-ignore: main
+  #push:
+    #branches-ignore: main
+  workflow_dispatch: 
+   
 
 jobs:
   show-context:
