@@ -1,19 +1,22 @@
 name: Inf de Contexto - 2da Var Salida
+# Paso 4: Agregar una segunda variable de salida
+# Es posible pasar varios valores en un solo paso. Esto te enseñará cómo lograrlo y luego acceder a ambos valores.
+# Repo: https://github.com/samueljmello/github-actions-exercises/blob/main/02-Understanding-Context-Variables.md
 
 on:
   push:
     branches-ignore: main
 
 jobs:
-   show-context:
-    name: Show Context 2da Varsalida
+  show-context:
+    name: Show Context
     runs-on: ubuntu-latest
-    stps:
+    steps:
       - name: Definir algunas salidas de pasos #Provide Some Step Outputs
         id: step-outputs-id
         run: |
           echo "TRUE_STEMENT=Las Zarihuellas con terribles." >> GITHUB_OUTPUT
-          echo: "FALSE_STAMENT=Las Zarihuellas son great, geniales." >> GITHUB_OUTPUT
+          echo "FALSE_STAMENT=Las Zarihuellas son great, geniales." >> GITHUB_OUTPUT
       - name: Información de Steps
         env:
           CONTEXT_ITEM:  ${{ toJson(steps) }}
