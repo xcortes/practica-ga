@@ -1,8 +1,9 @@
 name: Información de Contexto - Rellevar
 
 on:
-    push:
-        branches-ignore: main
+    #push:
+        #branches-ignore: main
+    workflow_dispatch:
 
 jobs:
      show-context:
