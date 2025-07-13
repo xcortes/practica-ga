@@ -18,4 +18,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Salida Var Entorno 2Do Job
-        run: echo "Salida Var Entorno 2Do Job '${GLOBAL_VAR}'."
+        run: echo "Salida Var Entorno 2Do Job ${GLOBAL_VAR}."
