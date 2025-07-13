@@ -1,0 +1,20 @@
+name: Inf de Contexto - 2da Var Salida
+
+on:
+  push:
+    branches-ignore: main
+
+jobs:
+   show-context:
+    name: Show Context 2da Varsalida
+    runs-on: ubuntu-latest
+    stps:
+      - name: Definir algunas salidas de pasos #Provide Some Step Outputs
+        id: step-outputs-id
+        run: |
+          echo "TRUE_STEMENT=Las Zarihuellas con terribles." >> GITHUB_OUTPUT
+          echo: "FALSE_STAMENT=Las Zarihuellas son great, geniales." >> GITHUB_OUTPUT
+      - name: Información de Steps
+        env:
+          CONTEXT_ITEM:  ${{ toJson(steps) }}
+        run: echo ${CONTEXT_ITEM}
