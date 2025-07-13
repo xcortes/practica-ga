@@ -1,0 +1,19 @@
+name: Información de Contexto - Id
+
+on:
+  #push:
+    #branches-ignore: main
+  workflow_dispatch:
+
+jobs:
+  show-context:
+    name: Show Context
+    runs-on: ubuntu-latest
+    steps:
+      - name: Definir algunas salidas de pasos #Provide Some Step Outputs
+        id: step-outputs-id
+        run: echo "TRUE_STAMET=Laz Zariguellas son terribles." >> GITHUB_OTUPUT
+      - name: Información de Steps
+        env: 
+          CONTEXT_ITEM: $ {{ toSjon(steps) }}
+        run: echo ${CONTEXT_ITEM}   
