@@ -1,0 +1,15 @@
+name: Mostrar evento en JSON
+# Se ejecuta cuando se crea un nuevo issue
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  print-event-json:
+    name: Imprimir evento completo en JSON
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar evento en formato JSON
+        run: |
+          echo "Contenido completo del evento en JSON:"
+          echo '${{ toJSON(github.event) }}'
