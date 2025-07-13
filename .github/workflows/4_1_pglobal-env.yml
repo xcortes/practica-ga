@@ -17,5 +17,5 @@ jobs:
     name: Otro Job #Another Job
     runs-on: ubuntu-latest
     steps:
-      - name: Salida Variable Entono
-        run: echo ${GLOBAL_VAR}
+      - name: Salida Var Entorno 2Do Job
+        run: echo "Salida Var Entorno 2Do Job '${GLOBAL_VAR}'."
