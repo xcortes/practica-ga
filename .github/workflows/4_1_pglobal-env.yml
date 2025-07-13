@@ -4,7 +4,7 @@ on:
   push:
     branches: [ feature/global-env ]
 env: 
-  GLOVARL_VAR: test
+  GLOBAL_VAR: test
 
 jobs: 
   primer-job:
@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Salida Variable Entono #Output Global Variable
-        run: echo ${GLOBAL_VAR}
+        run: echo ${GLOBAL_VAR} # Linea original ejerciio
   segundo-job:
     name: Otro Job #Another Job
     runs-on: ubuntu-latest
     steps:
       - name: Salida Var Entorno 2Do Job
-        run: echo "Salida Var Entorno 2Do Job ${GLOBAL_VAR}."
+        run: echo "Salida Variable de Entorno desde el 2Do Job es ${GLOBAL_VAR}."
