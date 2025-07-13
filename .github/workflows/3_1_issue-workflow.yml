@@ -16,6 +16,16 @@ jobs:
       - name: Información de salide Issues
         env: #Definición variables de entorno
           EVENT_NAME: ${{ github.event_name }} #toma el nombre del evento (issues en este caso
-          EVENT_ACTION: ${{ github.event.action }} 
+                                               #es una propiedad de nivel superior que indica el tipo de evento GitHub que disparó el workflow. 
+                                               #qué evento (issues, push, pull_request...)
+          EVENT_ACTION: ${{ github.event.action }} #es una propiedad dentro del payload del evento que indica qué hizo exactamente el usuario o sistema en ese evento.
+                                                   #qué acción dentro de ese evento (opened, closed, labeled...)
+                                                   #Esto te permite crear workflows más inteligentes y específicos.
         run: echo "La acción '${EVENT_ACTION}' se realizó contra '${EVENT_NAME}'." 
         #Esto sirve para confirmar que el workflow detectó correctamente el evento y la acción
+
+#En resumen:
+#github.event_name = qué evento (issues, push, pull_request...)
+#github.event.action = qué acción dentro de ese evento (opened, closed, labeled...)
+#Esto te permite crear workflows más inteligentes y específicos
+# Doc: https://docs.github.com/es/actions/reference/contexts-reference
