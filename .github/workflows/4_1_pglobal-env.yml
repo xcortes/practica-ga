@@ -2,7 +2,7 @@ name: Variables de entorno
 
 on:
   push:
-    branches: [ feature/gobal-env ]
+    branches: [ feature/global-env ]
 env: 
   GLOVARL_VAR: test
 
