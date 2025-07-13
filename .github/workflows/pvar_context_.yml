@@ -1,0 +1,27 @@
+name: Información de Contexto 
+
+on: 
+  push:
+    branches-ignore: main
+
+jobs:
+  show-context:
+    name: Show Context
+    runs-on: ubuntu-latest
+    steps:
+      - name: Información Evento
+        env:
+          CONTEXT_ITEM: ${{ toJson(github)}}
+        run: echo "${CONTEXT_ITEM}"
+      - name: Información Job
+        env:
+          CONTEXT_ITEM: ${{ ToJson(job)}}
+        run: echo "${CONTEXT_ITEM}"
+      - name: Información Runner
+        env:
+          CONTEX_ITEM: ${{ toJson(runner)}}
+        run: echo "${CONTEX_ITEM}"
+      - name: Información Step
+        env:
+            CONTEXT_ITEM: $ {{ ToSon(steps )}}
+        run: echo "${CONTEXT_ITEM}"
