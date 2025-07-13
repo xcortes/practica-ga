@@ -1,0 +1,21 @@
+name: Variables de entorno
+
+on:
+  push:
+    branches: [ feature/gobal-env ]
+env: 
+  GLOVARL_VAR: test
+
+jobs: 
+  primer-job:
+    name: Un Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Salida Variable Entono #Output Global Variable
+        run: echo ${GLOBAL_VAR}
+  segundo-job:
+    name: Otro Job #Another Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Salida Variable Entono
+        run: echo ${GLOBAL_VAR}
