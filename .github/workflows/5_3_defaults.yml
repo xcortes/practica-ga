@@ -1,4 +1,4 @@
-name: Trabajo Predeterminado - Jobs Defaults
+name: 5.3 Trabajo Predeterminado - Jobs Defaults
 # Por último, veremos cómo tiene todo el flujo de trabajo.defaults
 # El resultado será aún menos código, haciendo que los pasos predeterminados y para todos los trabajos.bashshellsrcworking-directory
 

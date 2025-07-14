@@ -1,4 +1,4 @@
-name: Uso de valores predeterminados #Using Defaults
+name: 5.1 Uso de valores predeterminados #Using Defaults
 #Valores predeterminados del trabajo
 #Existen opciones predeterminadas para los trabajos y pasos dentro de un flujo de trabajo. Actualmente se puede definir el y .shellworking-directory
 #En este ejercicio, verá cómo controlar tanto el flujo de trabajo de nivel superior (para todos los trabajos) como los trabajos individualmente.
