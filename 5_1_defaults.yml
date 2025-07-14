@@ -1,0 +1,42 @@
+name: Uso de valores predeterminados #Using Defaults
+#Valores predeterminados del trabajo
+#Existen opciones predeterminadas para los trabajos y pasos dentro de un flujo de trabajo. Actualmente se puede definir el y .shellworking-directory
+#En este ejercicio, verá cómo controlar tanto el flujo de trabajo de nivel superior (para todos los trabajos) como los trabajos individualmente.
+# elegí manualmente crear un directorio (usando: mkdir src) para demostrar.
+on:
+  push:
+
+jobs:
+  primer-job:
+    name: Primer job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear Direcotrio de Origen
+        run: mkdir src
+        shell: bash
+      - name: Usar Python
+        run: import os; print("Estoy ejecutando Python") + os.getcwd());
+        shell: python
+        working-directory: src
+      - name: Usar Bash 
+        run: echo "Estoy ejecutando Bash $(pwd). Booo"
+        shell: bash
+        working-directory: src
+      - name: Usar Bash
+        run: echo "Tambien estoy ejecutando bash, pero en otro lugar en $(pdw). Boo Boo"
+        shell: bash
+  segundo-job:
+    name: Segundo job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear Dir de Origene 2Do job
+        run: mkdir src
+        shell: bash
+      - name: usar Bash
+        run: echo "I'm running bash in $(pwd). So sad."
+        shell: bash
+        working-directory: src
+
+        
+        
+        
