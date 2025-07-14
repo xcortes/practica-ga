@@ -14,7 +14,7 @@ jobs:
         run: mkdir src
         shell: bash
       - name: Usar Python
-        run: import os; print("Estoy ejecutando Python") + os.getcwd());
+        run: import os; print("Estoy ejecutando Python" + os.getcwd());
         shell: python
         working-directory: src
       - name: Usar Bash 
