@@ -3,8 +3,7 @@ name: Uso de valores predeterminados #Using Defaults
 #Existen opciones predeterminadas para los trabajos y pasos dentro de un flujo de trabajo. Actualmente se puede definir el y .shellworking-directory
 #En este ejercicio, verá cómo controlar tanto el flujo de trabajo de nivel superior (para todos los trabajos) como los trabajos individualmente.
 # elegí manualmente crear un directorio (usando: mkdir src) para demostrar.
-on:
-  push:
+on: [ push ]
 
 jobs:
   primer-job:
