@@ -21,8 +21,8 @@ jobs:
         run: echo "Estoy ejecutando Bash $(pwd). Booo"
         shell: bash
         working-directory: src
-      - name: Usar Bash
-        run: echo "Tambien estoy ejecutando bash, pero en otro lugar en $(pdw). Boo Boo"
+      - name: Usar Bash Also
+        run: echo "Tambien estoy ejecutando bash, pero en otro lugar en $(pwd). Boo Boo"
         shell: bash
   segundo-job:
     name: Segundo job
