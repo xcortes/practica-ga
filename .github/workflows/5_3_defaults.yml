@@ -1,0 +1,38 @@
+name: Trabajo Predeterminado - Jobs Defaults
+# Por último, veremos cómo tiene todo el flujo de trabajo.defaults
+# El resultado será aún menos código, haciendo que los pasos predeterminados y para todos los trabajos.bashshellsrcworking-directory
+
+on: [ push ]
+
+defaults:
+  run:
+    shell: bash
+    working-directory: src
+jobs:
+  primer-job:
+    name: Primer job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear Direcotrio de Origen
+        run: mkdir src
+        working-directory: .
+      - name: Usar Python
+        run: import os; print("Estoy ejecutando Python " + os.getcwd());
+        shell: python
+      - name: Usar Bash 
+        run: echo "Estoy ejecutando Bash in $(pwd). Booo"
+        shell: bash
+      - name: Usar Bash Also
+        run: echo "Tambien estoy ejecutando bash, pero en otro lugar en $(pwd). Boo Boo"
+        working-directory: ..
+  segundo-job:
+    name: Segundo job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear Dir de Origen 2Do job
+        run: mkdir src
+        shell: bash
+        working-directory: .
+      - name: usar Bash
+        run: echo "I'm running bash in $(pwd). So sad."
+        shell: bash
