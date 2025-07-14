@@ -10,28 +10,31 @@ jobs:
   primer-job:
     name: Primer job
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: src
     steps:
       - name: Crear Direcotrio de Origen
         run: mkdir src
-        shell: bash
+        working-directory: .
       - name: Usar Python
         run: import os; print("Estoy ejecutando Python" + os.getcwd());
         shell: python
-        working-directory: src
       - name: Usar Bash 
         run: echo "Estoy ejecutando Bash $(pwd). Booo"
         shell: bash
-        working-directory: src
       - name: Usar Bash Also
         run: echo "Tambien estoy ejecutando bash, pero en otro lugar en $(pwd). Boo Boo"
-        shell: bash
+        working-directory: ..
   segundo-job:
     name: Segundo job
     runs-on: ubuntu-latest
     steps:
-      - name: Crear Dir de Origene 2Do job
+      - name: Crear Dir de Origen 2Do job
         run: mkdir src
         shell: bash
+        working-directory: .
       - name: usar Bash
         run: echo "I'm running bash in $(pwd). So sad."
         shell: bash
