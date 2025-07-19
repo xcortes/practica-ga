@@ -23,7 +23,7 @@ jobs:
       - name: Inf Job desde Segundo Job
         env:
           CONTEXT_ITEM: ${{ toJson(job) }}
-        run: echo "${CONTEXT_ITEM}" >>GITHUB_sTEP_SUMMARY
+        run: echo "${CONTEXT_ITEM}" >>GITHUB_STEP_SUMMARY
       
 
         #$GITHUB_STEP_SUMMARY es una variable de entorno que GitHub Actions utiliza para crear resúmenes personalizados de los jobs usando Markdown. Esta funcionalidad te permite mostrar información relevante (por ejemplo, resultados de pruebas, reportes, avisos) en la página de resumen de cada ejecución, sin que tengas que buscar entre los logs
