@@ -30,4 +30,4 @@ jobs:
       - name: Inf Job Tercer Job
         env:
           CONTEX_ITEM: ${{ toJson(job) }}
-        run: echo "${CONTEXT_ITEM}" >> $GITHUB_STEP_SUMMARU
+        run: echo "${CONTEXT_ITEM}" >> $GITHUB_STEP_SUMMARY
