@@ -15,4 +15,4 @@ jobs:
     - name: Información Job
       env:
         CONTEXT_ITEM: ${{ toJson(job) }} # convierte toda la información del job al formato JSON.
-      run: echo "${CONTEXT_ITEM}" >> GITHUB_STEP_SUMMARY
+      run: echo "${CONTEXT_ITEM}" >> $GITHUB_STEP_SUMMARY
