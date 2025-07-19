@@ -1,0 +1,33 @@
+name: 6.1 Dependent Jobs Needs
+#Step 2: Modify the workflow to make specific jobs using "needs"
+#En segundo lugar, ajustaremos nuestro flujo de trabajo para tener dos trabajos en serie y un tercero en paralelo.
+
+on:
+  push:
+    branches: feature/dependent
+jobs:
+  first-job:
+    name: Primer Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Información Job
+        env:
+          CONTEXT_ITEM: ${{ toJson(job) }} # convierte toda la información del job al formato JSON.
+        run: echo "${CONTEXT_ITEM}" >> $GITHUB_STEP_SUMMARY #scribe esa información en un resumen que GitHub muestra en la página de resultados del workflow.
+  second-job:
+    name: Segundo Job (Series)
+    runs-on: ubuntu-latest
+    needs: first-job
+    steps:
+      - name: Inf Job desde Segundo Job
+        env:
+          CONTEXT_ITEM: ${{ toJson(job) }}
+        run: echo "${CONTEXT_ITEM}" >> $GITHUB_STEP_SUMMARY
+  third-job:
+    name: Tercer Job (paralled)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inf Job Tercer Job
+        env:
+          CONTEX_ITEM: ${{ toJson(job) }}
+        run: echo "${CONTEXT_ITEM}" >> $GITHUB_STEP_SUMMARU
