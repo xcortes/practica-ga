@@ -1,0 +1,26 @@
+name: Dependen Jobs
+#Los Jons se pueden encadenar en serie mediante la propiedad.needs
+#URL: https://github.com/samueljmello/github-actions-exercises/blob/main/06-Dependent-Jobs.md
+#Este ejercicio te guiará a través de la creación de un conjunto encadenado de trabajos que dependen unos de otros. 
+# Paso 1: Primero crearemos dos trabajos independientes entre sí (corriendo en paralelo).
+
+on:
+  push: 
+    branches: feature/dependent
+jobs:
+  primer-job:
+	  name: Primer Job
+		runs-on: ubuntu-latest
+		steps:
+		  - name: Información Job
+			 rnv: 
+
+
+
+
+
+
+
+   
+
+ 
