@@ -1,4 +1,4 @@
-name: 6.1 Dependent Jobs Needs
+name: 6.2 Dependent Jobs Needs
 #Step 2: Modify the workflow to make specific jobs using "needs"
 #En segundo lugar, ajustaremos nuestro flujo de trabajo para tener dos trabajos en serie y un tercero en paralelo.
 
