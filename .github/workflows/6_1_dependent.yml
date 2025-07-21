@@ -1,4 +1,4 @@
-name: Dependent Jobs
+name: 6.1 Dependent Jobs
 #Los Jons se pueden encadenar en serie mediante la propiedad.needs
 #URL: https://github.com/samueljmello/github-actions-exercises/blob/main/06-Dependent-Jobs.md
 #Este ejercicio te guiará a través de la creación de un conjunto encadenado de trabajos que dependen unos de otros. 
