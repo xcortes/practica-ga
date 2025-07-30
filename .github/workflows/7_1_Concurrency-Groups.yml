@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - name: La cosa que he hecho 
-        run: echo "He hecho una cosa", sleep 15;
+        run: echo "He hecho una cosa", sleep 60;
 
 # https://github.com/samueljmello/github-actions-exercises/blob/main/07-Concurrency-Groups.md
 
