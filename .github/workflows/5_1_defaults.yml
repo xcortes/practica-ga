@@ -4,7 +4,8 @@ name: 5.1 Uso de valores predeterminados #Using Defaults
 #En este ejercicio, verá cómo controlar tanto el flujo de trabajo de nivel superior (para todos los trabajos) como los trabajos individualmente.
 # elegí manualmente crear un directorio (usando: mkdir src) para demostrar.
 # https://github.com/samueljmello/github-actions-exercises/blob/main/05-Workflow-Defaults.md
-on: [ push ]
+on: #[ push ]
+    workflow_dispatch:
 
 jobs:
   primer-job:

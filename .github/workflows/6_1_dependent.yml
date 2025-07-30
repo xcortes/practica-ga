@@ -1,0 +1,31 @@
+name: 6.1 Dependent Jobs
+#Los Jons se pueden encadenar en serie mediante la propiedad.needs
+#URL: https://github.com/samueljmello/github-actions-exercises/blob/main/06-Dependent-Jobs.md
+#Este ejercicio te guiará a través de la creación de un conjunto encadenado de trabajos que dependen unos de otros. 
+# Paso 1: Primero crearemos dos trabajos independientes entre sí (corriendo en paralelo).
+
+on:
+  #push: 
+    #branches: feature/dependent
+    workflow_dispatch:
+
+jobs:
+  first-job:
+    name: Primer Job
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Información Job
+      env:
+        CONTEXT_ITEM: ${{ toJson(job) }} # convierte toda la información del job al formato JSON.
+      run: echo "${CONTEXT_ITEM}" >> $GITHUB_STEP_SUMMARY #scribe esa información en un resumen que GitHub muestra en la página de resultados del workflow.
+  second-job:
+    name: Segundo Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inf Job desde Segundo Job
+        env:
+          CONTEXT_ITEM: ${{ toJson(job) }}
+        run: echo "${CONTEXT_ITEM}" >>$GITHUB_STEP_SUMMARY
+      
+
+        #$GITHUB_STEP_SUMMARY es una variable de entorno que GitHub Actions utiliza para crear resúmenes personalizados de los jobs usando Markdown. Esta funcionalidad te permite mostrar información relevante (por ejemplo, resultados de pruebas, reportes, avisos) en la página de resumen de cada ejecución, sin que tengas que buscar entre los logs
