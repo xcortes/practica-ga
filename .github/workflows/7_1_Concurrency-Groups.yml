@@ -1,0 +1,27 @@
+name: 7.1 Concorrency Groups
+
+on:
+  push:
+     branches: [ feature/concurrency ] 
+
+jobs: 
+  haciendo-mas-cosas: #doing-more-things:
+    name: Hace cosas con simultaneidad
+    runs-on: ubuntu-latest
+    concurrency: #es una característica para controlar la ejecución concurrente de jobs.
+      group: static-group
+    
+    steps:
+      - name: La cosa que he hecho 
+        run: echo "He hecho una cosa", sleep 15;
+
+# https://github.com/samueljmello/github-actions-exercises/blob/main/07-Concurrency-Groups.md
+
+        #group: static-group indica el grupo de concurrencia: si hay otro job en ejecución con el mismo grupo, el nuevo esperará o cancelará el anterior, según configuración predeterminada (en este snippet no hay cancel-in-progress, por defecto esperará que el anterior termine).
+#run: comando de shell que se ejecuta. Aquí hace dos cosas:
+ #echo "He hecho una cosa" imprime un mensaje en la consola.
+ #sleep 15 pausa el proceso 15 segundos para simular una acción que tarda tiempo.
+#Para qué sirve esta configuración?
+ #Cada vez que alguien hace un push a feature/concurrency, se ejecuta este workflow.
+ #Si se disparan varios workflows con este job "haciendo-mas-cosas" simultáneamente, la propiedad concurrency con grupo estática static-group asegura que sólo uno se ejecute a la vez.
+ #Es útil para evitar que múltiples instancias del mismo job corran en paralelo y puedan causar conflictos, por ejemplo al desplegar o modificar recursos compartidos.
