@@ -1,8 +1,9 @@
 name: 7.1 Concorrency Groups
 
 on:
-  push:
-     branches: [ feature/concurrency ] 
+  #push:
+     #branches: [ feature/concurrency ] 
+     workflow_dispatch:
 
 jobs: 
   haciendo-mas-cosas: #doing-more-things:
@@ -15,6 +16,7 @@ jobs:
       - name: La cosa que he hecho 
         run: echo "He hecho una cosa", sleep 15;
         # Test ok con sleep 60;
+
 
 # https://github.com/samueljmello/github-actions-exercises/blob/main/07-Concurrency-Groups.md
 
