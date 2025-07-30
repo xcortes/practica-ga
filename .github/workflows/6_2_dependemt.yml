@@ -3,8 +3,10 @@ name: 6.2 Dependent Jobs Needs
 #En segundo lugar, ajustaremos nuestro flujo de trabajo para tener dos trabajos en serie y un tercero en paralelo.
 
 on:
-  push:
-    branches: feature/dependent
+  #push:
+   # branches: feature/dependent
+   workflow_dispatch: 
+    
 jobs:
   first-job:
     name: Primer Job
