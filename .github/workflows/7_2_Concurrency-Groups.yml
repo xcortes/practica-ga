@@ -1,0 +1,16 @@
+name: 7.2 Concorrency Groups cancel-in-prog
+
+on:
+  push: 
+    branches: [ feature/concurrency ]
+
+jobs:
+  haciendo-mas-cosas: #doing-more-things:
+    name: Hace cosas con simultaneidad
+    runs-on: ubuntu-latest
+    concurrency:
+      group: static-group
+      cancel-in-progress: true
+    steps:
+      - name: La cosa que he hecho 
+        run: echo "He hecho una cosa", sleep 15;

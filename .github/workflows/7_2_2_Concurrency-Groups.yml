@@ -1,0 +1,33 @@
+name: 7.2.2 Concorrency Groups cancel-in-prog 
+
+on:
+  push:
+    branches: [ feature/concurrency ]
+
+jobs:
+  haciendo-mas-cosas: #doing-more-things:
+    name: Haz otras cosas con concurrencias
+    runs-on: ubuntu-latest
+    concurrency:
+      group: static-group
+      cancel-in-progress: true
+    steps: 
+      - name: La otra cosa que hecho 
+        run: echo "He hecho otra cosa", sleep 15;
+
+#El resultado será que una ejecución de flujo de trabajo (la que se desencadene primero) se cancelará cuando la segunda se ponga en cola porque están en el mismo grupo de simultaneidad.
+
+#¿Qué significa cancel-in-progress: true?
+#Cuando GitHub Actions detecta un nuevo job con la misma concurrencia (group: static-group), y si hay otra ejecución de ese job todavía en curso, cancelará la ejecución previa automáticamente para que solo corra la más reciente.
+#Esto es útil para evitar que se acumulen ejecuciones viejas que ya no importan, por ejemplo, cuando haces varios commits rápidos y solo interesan los últimos cambios.
+#En el ejemplo anterior no se cancelaba el job anterior, se esperaba a que terminara.
+
+#Imprime el mensaje "He hecho otra cosa" en consola.
+#Luego pausa 15 segundos con sleep 15, simulando una tarea lenta o que toma tiempo.
+
+#Resumens
+#Se dispara al hacer push a feature/concurrency.
+#Ejecuta un job en Ubuntu.
+#Controla que solo haya una ejecución activa a la vez en el grupo static-group.
+#Si llega una nueva ejecución mientras la anterior está corriendo, cancela la que está en progreso para iniciar la nueva inmediatamente.
+#Esto ayuda a ahorrar recursos, y evita hacer trabajo innecesario sobre código antiguo.
