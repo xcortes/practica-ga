@@ -3,15 +3,15 @@ name:  Consulta ejecuciones Workflow por API
 # List workflow runs for a repository
 
 on:
-  workflow_distpatch:
+  workflow_dispatch:
 
 jobs:
   consultar-ejecuciones:
-    runs-ons: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Listar ejecuciones en el repositorio
     run: |
-    curl -s -H "Accept: application/vnd.github+json" \
-      -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-      https://api.github.com/repos/${{ github.repository }}/actions/runs \
-      | jq '.workflow_runs[] | {id: .id, name: .name, status: .status, conclusion: .conclusion, started_at: .run_started_at}'
+      curl -s -H "Accept: application/vnd.github+json" \
+        -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+        https://api.github.com/repos/${{ github.repository }}/actions/runs \
+        | jq '.workflow_runs[] | {id: .id, name: .name, status: .status, conclusion: .conclusion, started_at: .run_started_at}'
